@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI provenance and data tracker</title>
+    <!--linking css file here.styles are applicable to body parts only-->
+    <link rel="stylesheet" href="style.css">
+    
+</head> 
+<body>
+<div class="container">
+        <div class="header">
+            <h1>🔍 AI Provenance & Data Tracker</h1>
+            <p>Identify data sources and track AI model provenance</p>
+        </div>
+
+        <div class="input-section">
+            <label for="textInput">Enter Text to Track:</label>
+            <textarea id="textInput" placeholder="Paste your text here to identify its source and similarity..."></textarea>
+            
+            <div class="input-group">
+                <button onclick="trackData()">Track Data</button>
+                <button onclick="clearAll()" style="background: #95a5a6;">Clear</button>
+            </div>
+
+            <div class="error-message" id="errorMessage"></div>
+        </div>
+
+        <div class="results-section" id="resultsSection">
+            <h2>📊 Tracking Results</h2>
+            <div class="result-card">
+                <div class="result-item">
+                    <span class="result-label">Source:</span>
+                    <span class="result-value source-badge" id="sourceResult">-</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Similarity Score:</span>
+                    <div style="flex: 1; margin-left: 20px;">
+                        <span class="result-value" id="similarityValue">0%</span>
+                        <div class="similarity-meter">
+                            <div class="similarity-fill" id="similarityFill" style="width: 0%;">
+                                <span id="fillPercent">0%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Match Status:</span>
+                    <span class="result-value status-badge" id="statusResult">-</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="history-section" id="historySection" style="display: none;">
+            <h3>📝 Recent Tracking History</h3>
+            <div id="historyList"></div>
+            <button class="clear-btn" onclick="clearHistory()">Clear History</button>
+        </div>
+    </div>
+    <script src="script.js" defer></script>
+</body>
+</html>
